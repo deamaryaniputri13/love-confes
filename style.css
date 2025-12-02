@@ -1,0 +1,187 @@
+/* =========================================
+   GENERAL
+========================================= */
+body{
+    margin:0;
+    font-family:"Poppins", sans-serif;
+    background:#ffd7ec;
+    animation: fadein 0.6s ease;
+}
+
+@keyframes fadein{
+    from{ opacity:0; transform: translateY(10px); }
+    to{ opacity:1; transform: translateY(0); }
+}
+
+/* =========================================
+   HALAMAN UTAMA (index.html)
+========================================= */
+.container{
+    text-align:center;
+    padding:40px;
+}
+
+.title{
+    font-size:32px;
+    color:#ff5fa2;
+    font-weight:700;
+    text-shadow:0 0 5px rgba(255,80,150,0.3);
+}
+
+.subtitle{
+    color:#444;
+    margin-bottom:20px;
+    font-size:17px;
+}
+
+.profile{
+    width:130px;
+    height:130px;
+    border-radius:50%;
+    object-fit:cover;
+    border:4px solid white;
+    box-shadow:0 0 12px rgba(255,0,120,0.5);
+    margin-bottom:15px;
+    animation: pop 0.5s ease;
+}
+
+@keyframes pop {
+    0% { transform: scale(0.7); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+textarea{
+    width:90%;
+    height:120px;
+    border-radius:15px;
+    border:2px solid #ffb3d9;
+    padding:12px;
+    font-size:16px;
+    outline:none;
+    background:#fff;
+    transition:0.2s;
+}
+textarea:focus{
+    border-color:#ff5fa2;
+    box-shadow:0 0 10px rgba(255,0,120,0.3);
+}
+
+.btn{
+    background:#ff5fa2;
+    color:white;
+    border:none;
+    padding:12px 20px;
+    border-radius:15px;
+    font-size:18px;
+    margin-top:15px;
+    cursor:pointer;
+    font-weight:600;
+    box-shadow:0 0 10px rgba(255,0,150,0.4);
+    transition:0.2s;
+}
+.btn:hover{
+    background:#ff3d8f;
+    transform:scale(1.05);
+}
+
+/* =========================================
+   LOVE PAGE (love.html)
+========================================= */
+.result-box{
+    background:white;
+    width:85%;
+    margin:50px auto;
+    padding:25px;
+    border-radius:18px;
+    text-align:center;
+    box-shadow:0 0 15px rgba(255,0,120,0.35);
+    animation: fadein 0.7s ease;
+}
+
+.result-title{
+    color:#ff4f9f;
+    font-size:28px;
+    margin-bottom:20px;
+    text-shadow:0 0 5px rgba(255,0,120,0.3);
+}
+
+.message{
+    white-space:pre-wrap;
+    color:#333;
+    font-size:18px;
+    background:#ffe6f1;
+    padding:20px;
+    border-radius:14px;
+    border:1px solid #ffb3d9;
+    box-shadow:inset 0 0 10px rgba(255,0,150,0.15);
+}
+
+/* =========================================
+   BACKGROUND LOVE HEARTS
+========================================= */
+.love-bg::before{
+    content:"💗 💕 💖 💗 💕";
+    font-size:80px;
+    position:fixed;
+    top:15%;
+    left:50%;
+    transform:translateX(-50%);
+    opacity:0.18;
+    animation: float 5s infinite ease-in-out;
+}
+
+@keyframes float{
+    0%{ transform:translate(-50%,0); }
+    50%{ transform:translate(-50%,20px); }
+    100%{ transform:translate(-50%,0); }
+}
+
+/* =========================================
+   CONFETTI HEARTS
+========================================= */
+.heart{
+    position:fixed;
+    top:-10px;
+    font-size:24px;
+    animation: turun 4s linear forwards;
+}
+
+@keyframes turun{
+    to{
+        transform: translateY(120vh) rotate(360deg);
+        opacity:0;
+    }
+}
+
+/* =========================================
+   MUSIC BUTTON
+========================================= */
+.music-btn{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:#ff5fa2;
+    color:white;
+    border:none;
+    padding:12px 18px;
+    border-radius:12px;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    box-shadow:0 0 15px rgba(255,0,150,0.5);
+    transition:0.2s;
+}
+
+.music-btn:hover{
+    background:#ff2e8c;
+    transform:scale(1.08);
+}
+
+/* =========================================
+   RESPONSIVE HP
+========================================= */
+@media(max-width:450px){
+    .title{ font-size:28px; }
+    .profile{ width:110px; height:110px; }
+    .message{ font-size:16px; }
+}
