@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesan Cinta</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Tombol Musik -->
+<button class="music-btn" onclick="toggleMusic()">🎵 Musik</button>
+<audio id="bgm" src="musik.mp3" loop autoplay></audio>
+
+<div class="love-bg"></div>
+
+<div class="result-box">
+    <h1 class="result-title">💗 Pesan Untukmu 💗</h1>
+    <p id="output" class="message"></p>
+
+    <button class="btn" onclick="shareWA()">💘 Share Ke WhatsApp</button>
+    <button class="btn2" onclick="confetti()">🎉 Confetti</button>
+</div>
+
+<script>
+// mengambil pesan
+const url = new URLSearchParams(window.location.search);
+const pesan = url.get("pesan");
+document.getElementById("output").innerText = pesan;
+
+// share WA
+function shareWA(){
+    const link = window.location.href;
+    window.open(`https://wa.me/?text=${encodeURIComponent(
+        "Aku punya pesan spesial buat kamu 💗\n\n" + pesan + "\n\nLihat di sini: " + link
+    )}`);
+}
+
+// confetti efek
+function confetti(){
+    for(let i=0; i<40; i++){
+        let heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerHTML = "💗";
+        heart.style.left = Math.random()*100 + "vw";
+        heart.style.animationDuration = (2 + Math.random()*3) + "s";
+        document.body.appendChild(heart);
+        setTimeout(()=> heart.remove(), 5000);
+    }
+}
+
+// musik play/pause
+let play = true;
+
+function toggleMusic(){
+    const bgm = document.getElementById("bgm");
+    if(play){
+        bgm.pause();
+        play = false;
+        document.querySelector(".music-btn").innerText = "🎵 Musik";
+    } else {
+        bgm.play();
+        play = true;
+        document.querySelector(".music-btn").innerText = "⏸ Pause";
+    }
+}
+</script>
+
+</body>
+</html>
